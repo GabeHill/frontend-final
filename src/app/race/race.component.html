@@ -1,0 +1,30 @@
+<h2>Race Details</h2>
+<input type="text" id="raceName" name="query" #query>
+<button type="button" (click)="getRace(query.value)">Search</button>
+
+<div id="raceDisplay" *ngif="cleanData.name">
+  <h3>{{cleanData.name}}</h3>
+  <p>Speed: {{cleanData.speed}}</p>
+  <p *ngfor="let b of bonuses">
+    {{b.name}} +{{b.bonus}}<br>
+  </p>
+  <p>{{cleanData.alignment}}</p>
+  <p>{{cleanData.age}}</p>
+  <p>{{cleanData.size}}</p>
+  <h5>Proficiencies</h5>
+  <p *ngfor="let p of proficiencies">
+    {{p}}<br>
+  </p>
+  <h5>Languages</h5>
+  <p *ngfor="let l of languages">
+    {{l}}<br>
+  </p>
+  <h5>Racial Traits</h5>
+  <p *ngfor="let t of traits">
+    {{t}}<br>
+  </p>
+  <h5>Subraces</h5>
+  <p *ngfor="let s of subraces">
+    {{s}}<br>
+  </p>
+</div>
