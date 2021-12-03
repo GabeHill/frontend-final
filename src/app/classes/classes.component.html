@@ -1,1 +1,42 @@
-<p>classes works!</p>
+<h2>Class details</h2>
+<input type="text" id="className" name="query" #query>
+<button type="button" (click)="getClass(query.value)">Search</button>
+
+<div id="classDisplay" *ngif="cleanData.name">
+  <h3>{{cleanData.name}}</h3>
+
+  <p><b>Hit Die: </b> {{cleanData.hitDie}}</p>
+
+  <h5>Proficiencies</h5>
+  <p *ngfor="let p of proficiencies">
+    {{p}}<br>
+  </p>
+  <p>Pick {{cleanData.skillCount}} from:</p>
+  <p *ngfor="let s of skills">
+    {{s}}<br>
+  </p>
+  <p><b>Saving throws:</b> {{cleanData.saves[0]}} and {{cleanData.saves[1]}}</p>
+
+  <h5>Equipment</h5>
+  <p *ngfor="let eo of equipmentOptions">
+    {{eo}}<br>
+  </p>
+  <p *ngfor="let e of equipment">
+    {{e}}<br>
+  </p>
+
+  <h5>Subclasses</h5>
+  <p *ngfor="let sc of subclasses">
+    {{sc}}<br>
+  </p>
+
+  <div id="spellcasting" *ngif="cleanData.spellcasting.length>0">
+    <h5>Spellcasting</h5>
+    <p><b>Spellcasting ability:</b> {{cleanData.spellMod}}</p>
+    <p *ngfor="let sp of spellcasting">
+      <b>{{sp.name}}</b><br>
+      {{sp.desc}}<br>
+      <br>
+    </p>
+  </div>
+</div>

@@ -15,7 +15,7 @@ export class ClassesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getRace(query: string): void {
+  getClass(query: string): void {
     if (query !== "") {
       this.getDataService.getData('classes', query).subscribe(
         (resp: any) => {
@@ -39,7 +39,7 @@ export class ClassesComponent implements OnInit {
 
           let equipment: string[] = []
           this.rawData.starting_equipment.forEach((e: any) => {
-            equipment.push(e.equipment.name += (e.quantity ? e.quantity : ""))
+            equipment.push((e.quantity ? `${e.quantity} ` : "") + e.equipment.name)
           })
 
           let equipmentOptions: string[] = []
