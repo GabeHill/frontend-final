@@ -8,7 +8,7 @@ import { GetDataService } from '../get-data.service';
 })
 export class RaceComponent implements OnInit {
   private rawData: any = {}
-  private cleanData: any = {}
+  cleanData: any = {}
 
   constructor(private getDataService: GetDataService) { }
 
