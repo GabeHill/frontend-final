@@ -9,6 +9,7 @@ import { RaceComponent } from './race/race.component';
 import { SpellsComponent } from './spells/spells.component';
 import { ClassesComponent } from './classes/classes.component';
 import { TraitsComponent } from './traits/traits.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TraitsComponent } from './traits/traits.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

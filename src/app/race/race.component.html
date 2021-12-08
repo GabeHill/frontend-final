@@ -1,30 +1,29 @@
-<h2>Race Details</h2>
-<input type="text" id="raceName" name="query" #query>
-<button type="button" (click)="getRace(query.value)">Search</button>
+<div class="center wireframe text-center">
+  <h2 class="text-center">Race Details</h2>
+  <input type="text" id="raceName" name="query" #query class="textbox-center">
+  <button type="button" (click)="getRace(query.value)" class="center-wide">Search</button>
 
-<div id="raceDisplay" *ngif="cleanData.name">
-  <h3>{{cleanData.name}}</h3>
-  <p>Speed: {{cleanData.speed}}</p>
-  <p *ngfor="let b of bonuses">
-    {{b.name}} +{{b.bonus}}<br>
-  </p>
-  <p>{{cleanData.alignment}}</p>
-  <p>{{cleanData.age}}</p>
-  <p>{{cleanData.size}}</p>
-  <h5>Proficiencies</h5>
-  <p *ngfor="let p of proficiencies">
-    {{p}}<br>
-  </p>
-  <h5>Languages</h5>
-  <p *ngfor="let l of languages">
-    {{l}}<br>
-  </p>
-  <h5>Racial Traits</h5>
-  <p *ngfor="let t of traits">
-    {{t}}<br>
-  </p>
-  <h5>Subraces</h5>
-  <p *ngfor="let s of subraces">
-    {{s}}<br>
-  </p>
+  <div id="raceDisplay" *ngIf="cleanData.name">
+    <h3>{{cleanData.name}}</h3>
+    <p><b class="textLightBlue">Speed:</b> {{cleanData.speed}}</p>
+    <p *ngFor="let b of cleanData.bonuses">
+      {{b.name}} +{{b.bonus}}<br>
+    </p>
+    <p class="wide-text"><b class="textLightBlue ">Alignment:</b> {{cleanData.alignment}}</p>
+    <br><br>
+    <p class="wide-text"><b class="textLightBlue ">Age:</b> {{cleanData.age}}</p>
+    <br><br>
+    <p><b class="textLightBlue">Size:</b> {{cleanData.size}}</p>
+
+    <h5 class="textLightBlue">Proficiencies</h5>
+    <p>{{cleanData.proficiencies}}</p>
+    <h5 class="textLightBlue">Languages</h5>
+    <p>{{cleanData.languages}}</p>
+
+    <h5 class="textLightBlue">Racial Traits</h5>
+    <p>{{cleanData.traits}}</p>
+
+    <h5 class="textLightBlue">Subraces</h5>
+    <p>{{cleanData.subraces}}</p>
+  </div>
 </div>

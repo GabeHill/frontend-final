@@ -1,37 +1,81 @@
-@use 'reset';
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-@import 'color.scss';
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /* import hack font 
 https://sourcefoundry.org/hack/
 */
-
 @font-face {
   font-family: Hack;
-  src: url(./assets/Hack-Regular.ttf);
+  src: url(./assets/Hack.ttf);
 }
-
 @font-face {
   font-family: Hack;
   src: url(./assets/Hack-Bold.ttf);
   font-weight: bold;
 }
-
 @font-face {
   font-family: Hack;
   src: url(./assets/Hack-Italic.ttf);
   font-style: italic;
 }
-
 @font-face {
   font-family: Hack;
   src: url(./assets/Hack-BoldItalic.ttf);
   font-weight: bold;
   font-style: italic;
 }
-
 /* end font */
-
 html,
 body,
 div,
@@ -113,18 +157,13 @@ time,
 mark,
 audio,
 video {
-  // space outside element
   margin: 2px;
-
-  // space inside element
   padding: 2px;
 }
 
-
 html {
-  background-color: $primaryColor;
-  color: $secondColor;
-
+  background-color: #333;
+  color: #ccc;
   font-family: Hack;
 }
 
@@ -157,52 +196,44 @@ h1,
 }
 
 @media (min-width: 1200px) {
-
   h1,
-  .h1 {
+.h1 {
     font-size: 2.5rem;
   }
 }
-
 h2,
 .h2 {
   font-size: calc(1.325rem + 0.9vw);
 }
 
 @media (min-width: 1200px) {
-
   h2,
-  .h2 {
+.h2 {
     font-size: 2rem;
   }
 }
-
 h3,
 .h3 {
   font-size: calc(1.3rem + 0.6vw);
 }
 
 @media (min-width: 1200px) {
-
   h3,
-  .h3 {
+.h3 {
     font-size: 1.75rem;
   }
 }
-
 h4,
 .h4 {
   font-size: calc(1.275rem + 0.3vw);
 }
 
 @media (min-width: 1200px) {
-
   h4,
-  .h4 {
+.h4 {
     font-size: 1.5rem;
   }
 }
-
 h5,
 .h5 {
   font-size: 1.25rem;
@@ -232,68 +263,66 @@ u {
 }
 
 /* end header system */
-
 /* begin text color stuff */
-
 .textRed,
 .warning {
-  color: $red;
+  color: #f00;
 }
 
 .textDarkRed {
-  color: $darkRed;
+  color: #700;
 }
 
 .textLightGreen {
-  color: $lightGreen;
+  color: #0f0;
 }
 
 .textGreen {
-  color: $green;
+  color: #080;
 }
 
 .textBlue {
-  color: $blue;
+  color: #00f;
 }
 
 .textLightBlue {
-  color: $lightBlue;
+  color: #08f;
 }
 
 .textYellow {
-  color: $yellow;
+  color: #ff0;
 }
 
 .textOrange {
-  color: $orange;
+  color: #e80;
 }
 
 .textWhite {
-  color: $white;
+  color: #fff;
 }
 
 .textBlack {
-  color: $black;
+  color: #000;
 }
 
 .textGreenBlue {
-  color: $greenBlue;
+  color: #0fd;
 }
 
 .textPurple {
-  color: $purple;
+  color: #80a;
 }
 
 .textPink {
-  color: $pink;
+  color: #f0f;
 }
 
 a:link {
-  color: $linkColor;
+  color: #0bf;
 }
 
 a:visited {
-  color: $linkVisited;
+  color: #a0a;
 }
 
 a:hover {
@@ -309,65 +338,61 @@ a:active {
 }
 
 /* end text color stuff */
-
 /* background colors */
-
 .background-red {
-  background-color: $red;
+  background-color: #f00;
 }
 
 .background-darkRed {
-  background-color: $darkRed;
+  background-color: #700;
 }
 
 .background-lightGreen {
-  background-color: $lightGreen;
+  background-color: #0f0;
 }
 
 .background-green {
-  background-color: $green;
+  background-color: #080;
 }
 
 .background-blue {
-  background-color: $blue;
+  background-color: #00f;
 }
 
 .background-lightBlue {
-  background-color: $lightBlue;
+  background-color: #08f;
 }
 
 .background-yellow {
-  background-color: $yellow;
+  background-color: #ff0;
 }
 
 .background-orange {
-  background-color: $orange;
+  background-color: #e80;
 }
 
 .background-white {
-  background-color: $white;
+  background-color: #fff;
 }
 
 .background-black {
-  background-color: $black;
+  background-color: #000;
 }
 
 .background-greenBlue {
-  background-color: $greenBlue;
+  background-color: #0fd;
 }
 
 .background-purple {
-  background-color: $purple;
+  background-color: #80a;
 }
 
 .background-pink {
-  background-color: $pink;
+  background-color: #f0f;
 }
 
 /* end background colors */
-
 /* start flex and sizing garbage of hatred and failure */
-
 .flex-container-row {
   display: flex;
   flex-direction: row;
@@ -441,7 +466,6 @@ div {
   max-width: 1000px;
 }
 
-
 .set-height-100 {
   min-height: 100px;
   max-height: 100px;
@@ -492,7 +516,6 @@ div {
   max-height: 1000px;
 }
 
-
 .center-content {
   justify-content: center;
   align-items: center;
@@ -503,15 +526,7 @@ div {
 }
 
 /* end flex size garbage */
-
 /* mixin thing */
-
-@mixin transform($property) {
-  -webkit-transform: $property;
-  -ms-transform: $property;
-  transform: $property;
-}
-
 .rotate-20 {
   flex: none;
   display: block;
@@ -519,14 +534,13 @@ div {
 }
 
 .rotate-20:hover {
-  @include transform(rotate(80deg));
-  // transform: rotate(80deg);
+  -webkit-transform: rotate(80deg);
+  -ms-transform: rotate(80deg);
+  transform: rotate(80deg);
 }
 
 /* end mixin */
-
 /* transition thing */
-
 .become-different-box {
   flex: none;
   border-style: solid;
@@ -542,28 +556,15 @@ div {
   background-color: #FFCCCC;
   width: 200px;
   height: 200px;
-  @include transform(rotate(180deg));
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /* end transition */
-
-
-
-
-// TODO set all divs to flex 1 tomake life easy
-// classes like flex-row-container or flex-column-container
-
-// text and images use text-align
-// use margin: auto; (and specify specific sides)
-// margin 0 auto; will do only sides
-
-
-
-
 /* page specific stuff */
-
 #demoLinkUnclicked {
-  color: $linkColor;
+  color: #0bf;
 }
 
 #display-stuff {
@@ -571,29 +572,10 @@ div {
 }
 
 #navbar-left {
-  flex: .5;
+  flex: 0.5;
 }
 
-// #mixin-div:hover {
-//   @include transform(rotate(20deg));
-// }
-// #transition-box {
-//   border-style: solid;
-//   border-width: 1px;
-//   display: block;
-//   width: 100px;
-//   height: 100px;
-//   background-color: #0000FF;
-//   transition: width 2s, height 2s, background-color 2s, transform 2s;
-// }
 /* end page stuff */
-
-
-// #sourceMappingURL=style.css.map
-
-// sass --watch style.scss style.css
-
-
 /* modal shit */
 /* The Modal (background) */
 .modal {
@@ -611,7 +593,7 @@ div {
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
@@ -619,14 +601,13 @@ div {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: $black;
+  background-color: #000;
   margin: 15% auto;
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
   /* Could be more or less, depending on screen size */
-  // color: $black;
 }
 
 /* The Close Button */
@@ -645,9 +626,6 @@ div {
 }
 
 /* modal done */
-
-
-
 .slideshow-container {
   max-width: 1000px;
   position: relative;
@@ -728,24 +706,20 @@ div {
 
 @-webkit-keyframes fade {
   from {
-    opacity: .4
+    opacity: 0.4;
   }
-
   to {
-    opacity: 1
+    opacity: 1;
   }
 }
-
 @keyframes fade {
   from {
-    opacity: .4
+    opacity: 0.4;
   }
-
   to {
-    opacity: 1
+    opacity: 1;
   }
 }
-
 .slide-img {
   width: 100%;
 }
@@ -756,46 +730,4 @@ div {
 
 /*end slideshow stuff*/
 
-.center {
-  margin: auto;
-  width: 75%;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.center-wide {
-  margin: auto;
-  width: 100%;
-}
-
-.textbox-center {
-  margin: auto;
-  width: 99%;
-}
-
-.button-wideify {
-  width: 33%;
-}
-
-.center-nw {
-  margin: auto;
-}
-
-button {
-  font-family: Hack;
-  color: $secondColor;
-  background-color: darken($primaryColor, 10%);
-}
-
-input {
-  font-family: Hack;
-  background-color: lighten($primaryColor, 20%);
-  color: $secondColor;
-  text-align: center;
-}
-
-.wide-text {
-  margin: 0 20px;
-}
+/*# sourceMappingURL=style.css.map */

@@ -15,15 +15,16 @@ export class ClassesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getClass(query: string): void {
+  public getClass(query: string): void {
     if (query !== "") {
-      this.getDataService.getData('classes', query).subscribe(
+      this.getDataService.getData('classes', query.replace(' ', '-').toLowerCase()).subscribe(
         (resp: any) => {
           this.rawData = resp
 
           // clean up multiples into names
           let skills: string[] = []
-          this.rawData.proficiency_choices.forEach((e: any) => {
+          this.rawData.proficiency_choices[0].from.forEach((e: any) => {
+            // console.log(e.name)
             skills.push(e.name.replace("Skill: ", ""))
           })
 
@@ -62,9 +63,9 @@ export class ClassesComponent implements OnInit {
           this.cleanData = {
             name: this.rawData.name,
             hitDie: `d${this.rawData.hit_die}`,
-            skillCount: this.rawData.proficiency_choices.choose,
-            skills,
-            proficiencies,
+            skillCount: this.rawData.proficiency_choices[0].choose,
+            skills: skills.join(', '),
+            proficiencies: proficiencies.join(', '),
             saves,
             equipment,
             equipmentOptions,
@@ -86,14 +87,25 @@ export class ClassesComponent implements OnInit {
         str += (`${f.quantity} ${f.equipment.name}`)
       }
       if (f[0]) {
-        str += (`${f[0].quantity} ${f[0].equipment.name} and ${f[1].quantity} ${f[1].equipment.name}`)
+        console.log(f)
+        let s: string = ""
+        let q: number = -1
+        if (f[1].equipment) {
+          s = f[1].equipment.name
+          q = f[1].quantity
+        }
+        if (f[1].equipment_option) {
+          s = f[1].equipment_option.from.equipment_category.name
+          q = f[1].equipment_option.choose
+        }
+        str += (`${f[0].quantity} ${f[0].equipment.name} and ${q} ${s}`)
       }
       if (f.equipment_option) {
         str += (`${f.equipment_option.choose} ${f.equipment_option.from.equipment_category.name}`)
       }
       str += " or "
     })
-    str.slice(0, str.length - 4)
+    str = str.slice(0, str.length - 4)
 
     return `Choose ${count} from ${str}`
   }

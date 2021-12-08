@@ -1,1 +1,54 @@
-<p>spells works!</p>
+<div class="center wireframe text-center">
+  <h2 class="text-center">Spell details</h2>
+  <input type="text" id="spellName" name="query" #query class="textbox-center">
+  <button type="button" (click)="getSpell(query.value)" class="center-wide">Search</button>
+
+
+  <div id="spellDisplay" *ngIf="cleanData.name">
+    <h3>{{cleanData.name}}</h3>
+
+    <p><b class="textLightBlue">Level:</b> {{cleanData.level}}</p>
+    <br>
+    <p><b class="textLightBlue">School: </b> {{cleanData.school}}</p>
+    <br>
+    <p><b class="textLightBlue">Range:</b> {{cleanData.range}}</p>
+    <br>
+    <p><b class="textLightBlue">Components:</b> {{cleanData.components}}</p><br>
+    <p *ngIf="cleanData.material">
+      <b class="textLightBlue">Material:</b> {{cleanData.material}}
+      <br>
+    </p>
+    <p><b class="textLightBlue">Ritual:</b> {{cleanData.ritual}}</p>
+    <br>
+    <p><b class="textLightBlue">Casting time:</b> {{cleanData.castTime}}</p>
+    <br>
+    <p><b class="textLightBlue">Concentration:</b> {{cleanData.concentration}}</p>
+    <br>
+    <p><b class="textLightBlue">Duration:</b> {{cleanData.duration}}</p>
+    <br>
+    <p class="wide-text">{{cleanData.desc}}</p>
+    <br>
+    <br>
+    <p *ngIf="cleanData.higherLevel" class="wide-text"><b class="textLightBlue">Higher levels:</b>
+      {{cleanData.higherLevel}}
+      <br><br>
+    </p>
+    <p *ngIf="cleanData.dcType">
+      <b class="textLightBlue">Save type:</b> {{cleanData.dcType}} <br>
+      <b class="textLightBlue">Save success:</b> {{cleanData.dcSuccess}}
+    </p>
+    <br>
+    <span *ngIf="cleanData.damageLevel">
+      <b class="textLightBlue">Damage:</b>
+      <div *ngFor="let dl of cleanData.damageLevel">
+        {{dl}}
+      </div>
+      <br>
+    </span>
+    <p *ngIf="cleanData.area"><b class="textLightBlue">Area:</b> {{cleanData.area}}</p>
+    <br>
+    <p><b class="textLightBlue">Classes:</b> {{cleanData.classes}}</p>
+    <br>
+    <p><b class="textLightBlue">Subclasses:</b> {{cleanData.subclasses}}</p>
+  </div>
+</div>

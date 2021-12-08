@@ -18,7 +18,7 @@ export class RaceComponent implements OnInit {
   getRace(query: string): void {
     if (query !== "") {
       query.replace(' ', '-')
-      this.getDataService.getData('races', query).subscribe(
+      this.getDataService.getData('races', query.replace(' ', '-').toLowerCase()).subscribe(
         (resp: any) => {
           this.rawData = resp
 
@@ -52,13 +52,13 @@ export class RaceComponent implements OnInit {
             name: this.rawData.name,
             speed: this.rawData.speed,
             bonuses,
-            algnment: this.rawData.alignment,
+            alignment: this.rawData.alignment,
             age: this.rawData.age,
             size: this.rawData.size,
-            proficiencies,
-            languages,
-            traits,
-            subraces
+            proficiencies: proficiencies.join(', '),
+            languages: languages.join(', '),
+            traits: traits.join(', '),
+            subraces: subraces.join(', ')
           }
         }
       )
